@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林岑瑾 | 個人履歷・自我介紹</title>
+  <meta name="description" content="林岑瑾的個人自我介紹與履歷網頁。慢熱、真誠、專注於生活與探索，熱愛跆拳道、鋼琴、看電影、學習吉他與醫療科技創新。">
+
+  <!-- Google Fonts: 導入日系高質感襯線與黑體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================
+       1. 基礎變數與設計系統 (日系暖木調 Wood Tone Palette)
+       =================================================== */
+    :root {
+      /* 原木色調色彩體系 */
+      --wood-primary: #8C6239;       /* 溫暖柚木褐 */
+      --wood-dark: #4A3525;          /* 深核桃褐 / 主標題色 */
+      --wood-deep: #2F2117;          /* 墨木黑 */
+      --wood-light: #C49E77;         /* 淺櫸木 / 金沙褐 */
+      --wood-soft: #EFE8DD;          /* 淺原木淡乳白 */
+      --wood-cream: #FAF7F2;         /* 和紙米白底色 */
+      --wood-card: #FFFFFF;          /* 純白卡片襯底 */
+      --wood-border: #E5DCD0;        /* 柔和木質邊框 */
+      
+      /* 日系輔助色 */
+      --matcha-subtle: #7A8471;      /* 靜謐抹茶綠 (點綴自然感) */
+      --hanko-red: #B84A39;          /* 印泥硃砂紅 (印章與重點標記) */
+      --text-main: #332B25;          /* 主要文字 (柔和深焙茶色) */
+      --text-muted: #786E65;         /* 次要說明文字 (木質灰褐) */
+
+      /* 圓角與陰影 */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --shadow-wood: 0 10px 30px -10px rgba(74, 53, 37, 0.08);
+      --shadow-hover: 0 16px 36px -10px rgba(74, 53, 37, 0.15);
+      
+      /* 字型 */
+      --font-serif: 'Noto Serif TC', serif;
+      --font-body: 'Zen Maru Gothic', 'Noto Serif TC', sans-serif;
+      --font-en: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ===================================================
+       2. 重設與全域樣式
+       =================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--wood-cream);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.85;
+      letter-spacing: 0.03em;
+      position: relative;
+      overflow-x: hidden;
+      /* 和紙微質感紋理 */
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(196, 158, 119, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(122, 132, 113, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* 捲軸美化 */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--wood-cream);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--wood-light);
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--wood-primary);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 容器居中 */
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===================================================
+       3. 導覽列 (Sticky Header)
+       =================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(229, 220, 208, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+    }
+
+    /* 日系印章標誌 (Hanko Seal) */
+    .hanko-seal {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      background: var(--hanko-red);
+      color: #FFF;
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(184, 74, 57, 0.3);
+      position: relative;
+      border: 1px dashed rgba(255, 255, 255, 0.4);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--wood-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--wood-primary);
+      transition: width 0.3s ease;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* 手機漢堡選單按鈕 */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--wood-dark);
+    }
+
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ===================================================
+       4. Hero 區塊 (日系沉靜、慢熱氣質)
+       =================================================== */
+    .hero-section {
+      padding: 80px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* 視覺卡片與頭像裝飾 */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      background: var(--wood-card);
+      border: 1px solid var(--wood-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-wood);
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--wood-soft) 0%, #E3D7C7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #FFF;
+      box-shadow: 0 8px 24px rgba(74, 53, 37, 0.1);
+      overflow: hidden;
+    }
+
+    /* 溫暖水彩質感的插畫向量圖形 */
+    .avatar-svg {
+      width: 130px;
+      height: 130px;
+    }
+
+    .hero-card-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--wood-soft);
+      color: var(--wood-dark);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--matcha-subtle);
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    .hero-card-name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-card-roman {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tag-pill {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background: rgba(140, 98, 57, 0.08);
+      color: var(--wood-primary);
+      border: 1px solid rgba(140, 98, 57, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .tag-pill:hover {
+      background: var(--wood-primary);
+      color: #FFF;
+    }
+
+    /* Hero 右側文字區 */
+    .hero-content {
+      position: relative;
+    }
+
+    .hero-vertical-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--wood-light);
+      letter-spacing: 0.2em;
+      font-family: var(--font-en);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--wood-dark);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-headline .highlight-word {
+      position: relative;
+      color: var(--wood-primary);
+      display: inline-block;
+    }
+
+    .hero-headline .highlight-word::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 10px;
+      background: rgba(196, 158, 119, 0.25);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    /* 慢熱宣言卡片 */
+    .quote-box {
+      background: rgba(255, 255, 255, 0.7);
+      border-left: 4px solid var(--wood-primary);
+      padding: 18px 22px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 28px;
+      border-top: 1px solid var(--wood-border);
+      border-right: 1px solid var(--wood-border);
+      border-bottom: 1px solid var(--wood-border);
+      backdrop-filter: blur(8px);
+    }
+
+    .quote-box p {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      font-style: normal;
+      margin-bottom: 6px;
+    }
+
+    .quote-author {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-wood-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--wood-primary);
+      color: #FFF;
+      padding: 12px 26px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(140, 98, 57, 0.3);
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-wood-primary:hover {
+      background: var(--wood-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 53, 37, 0.35);
+      color: #FFF;
+    }
+
+    .btn-wood-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--wood-dark);
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1.5px solid var(--wood-border);
+      transition: all 0.3s ease;
+    }
+
+    .btn-wood-outline:hover {
+      background: rgba(140, 98, 57, 0.08);
+      border-color: var(--wood-primary);
+      color: var(--wood-primary);
+    }
+
+    /* ===================================================
+       5. 通用區塊標題設計 (日系排版)
+       =================================================== */
+    .section-wrap {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .section-en-title {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--wood-light);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      display: inline-block;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 3px;
+      background: var(--wood-primary);
+      border-radius: var(--radius-full);
+    }
+
+    .section-desc {
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===================================================
+       6. 關於我（深入慢熱哲學）
+       =================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .trait-card {
+      background: var(--wood-card);
+      border: 1px solid var(--wood-border);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-wood);
+      transition: all 0.35s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trait-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--wood-light);
+    }
+
+    .trait-num {
+      font-family: var(--font-en);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(196, 158, 119, 0.3);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .trait-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 10px;
+    }
+
+    .trait-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* ===================================================
+       7. 興趣專區 (3個興趣：跆拳道、鋼琴、看電影)
+       =================================================== */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .interest-card {
+      background: var(--wood-card);
+      border: 1px solid var(--wood-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-wood);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--wood-light);
+    }
+
+    .interest-card-top {
+      padding: 24px 24px 16px;
+      background: linear-gradient(180deg, var(--wood-soft) 0%, #FFFFFF 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(229, 220, 208, 0.5);
+    }
+
+    .interest-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wood-primary);
+      box-shadow: 0 4px 12px rgba(74, 53, 37, 0.08);
+      border: 1px solid var(--wood-border);
+    }
+
+    .interest-icon-box svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .interest-label {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--wood-primary);
+      background: rgba(140, 98, 57, 0.1);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .interest-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .interest-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 8px;
+    }
+
+    .interest-quote {
+      font-size: 0.88rem;
+      color: var(--wood-light);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .interest-desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .interest-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .interest-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--wood-cream);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ===================================================
+       8. 技能與探索：彈吉他 (含 Web Audio 互動和弦試聽)
+       =================================================== */
+    .skills-box {
+      background: var(--wood-card);
+      border: 1px solid var(--wood-border);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      box-shadow: var(--shadow-wood);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .skill-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 8px;
+    }
+
+    .skill-status-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(122, 132, 113, 0.15);
+      color: var(--matcha-subtle);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .skill-info p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 22px;
+      line-height: 1.8;
+    }
+
+    /* 進度與日常練習項目 */
+    .skill-routine-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .skill-routine-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .routine-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--wood-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wood-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* 互動吉他和弦撥弦模擬器 */
+    .guitar-interactive-board {
+      background: linear-gradient(145deg, #443224, #2A1D15);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      color: #FFF;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3), 0 10px 25px rgba(42, 29, 21, 0.25);
+      position: relative;
+      border: 2px solid #5C4533;
+    }
+
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .board-title {
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--wood-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .board-hint {
+      font-size: 0.78rem;
+      color: #CBB9A7;
+    }
+
+    .chord-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .chord-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(196, 158, 119, 0.3);
+      color: #FAF7F2;
+      border-radius: var(--radius-sm);
+      padding: 12px 6px;
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .chord-btn:hover {
+      background: var(--wood-primary);
+      border-color: var(--wood-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .chord-btn:active, .chord-btn.playing {
+      background: #D4A373;
+      color: #2F2117;
+      transform: scale(0.96);
+    }
+
+    .chord-subtext {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: #CBB9A7;
+      margin-top: 3px;
+    }
+
+    /* 琴弦動畫線條 */
+    .guitar-strings {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 0 4px;
+      border-top: 1px dashed rgba(196, 158, 119, 0.25);
+    }
+
+    .string-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(239, 232, 221, 0.6), transparent);
+      width: 100%;
+      position: relative;
+      transition: transform 0.1s ease;
+    }
+
+    .string-line.vibrate {
+      animation: stringVibe 0.4s ease-out;
+    }
+
+    @keyframes stringVibe {
+      0% { transform: translateY(0); }
+      20% { transform: translateY(-3px); }
+      40% { transform: translateY(3px); }
+      60% { transform: translateY(-2px); }
+      80% { transform: translateY(1px); }
+      100% { transform: translateY(0); }
+    }
+
+    .audio-notice {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #A99A8C;
+      margin-top: 10px;
+    }
+
+    /* ===================================================
+       9. 專案與活動：醫療科技創意競賽
+       =================================================== */
+    .project-card {
+      background: var(--wood-card);
+      border: 1px solid var(--wood-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-wood);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: all 0.35s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--wood-light);
+    }
+
+    .project-visual-side {
+      background: linear-gradient(135deg, #4A3525 0%, #302116 100%);
+      color: #FFF;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual-side::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -30%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(196, 158, 119, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .project-badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      color: var(--wood-light);
+      align-self: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .project-visual-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 16px;
+      color: #FAF7F2;
+    }
+
+    .project-visual-sub {
+      font-size: 0.95rem;
+      color: #D1C5B8;
+      line-height: 1.7;
+    }
+
+    .project-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .meta-pill {
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .project-detail-side {
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .detail-step {
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .detail-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-marker {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--wood-primary);
+      border: 2px solid var(--wood-cream);
+      box-shadow: 0 0 0 2px var(--wood-primary);
+    }
+
+    .detail-step::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 18px;
+      bottom: -20px;
+      width: 2px;
+      background: var(--wood-border);
+    }
+
+    .detail-step:last-child::before {
+      display: none;
+    }
+
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===================================================
+       10. 慢熱籤詩・心靈小語 (互動式日系木製抽籤)
+       =================================================== */
+    .fortune-box {
+      margin-top: 40px;
+      background: var(--wood-soft);
+      border: 1px dashed var(--wood-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .fortune-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 8px;
+    }
+
+    .fortune-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .fortune-display {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 14px auto 20px;
+      max-width: 550px;
+      background: #FFF;
+      padding: 14px 24px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 12px rgba(74, 53, 37, 0.05);
+      border: 1px solid var(--wood-border);
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--wood-dark);
+      transition: all 0.3s ease;
+    }
+
+    .btn-fortune {
+      background: var(--wood-primary);
+      color: #FFF;
+      border: none;
+      padding: 10px 24px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(140, 98, 57, 0.25);
+    }
+
+    .btn-fortune:hover {
+      background: var(--wood-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ===================================================
+       11. 聯絡區塊與頁尾 (溫暖收尾)
+       =================================================== */
+    .contact-section {
+      padding: 80px 0 40px;
+    }
+
+    .contact-card {
+      background: var(--wood-card);
+      border: 1px solid var(--wood-border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      box-shadow: var(--shadow-wood);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .contact-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      border-top: 1px solid var(--wood-border);
+      padding: 40px 0 30px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .footer-seal {
+      margin: 0 auto 16px;
+      display: inline-flex;
+    }
+
+    .footer-text {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    /* ===================================================
+       12. 滾動淡入動畫 (Scroll Reveal Animations)
+       =================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 延遲階梯效果 */
+    .delay-1 { transition-delay: 0.12s; }
+    .delay-2 { transition-delay: 0.24s; }
+    .delay-3 { transition-delay: 0.36s; }
+
+    /* Toast 複製成功提示 */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--wood-dark);
+      color: #FFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-notice.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ===================================================
+       13. 響應式適配 (RWD: 手機與平板全面優化)
+       =================================================== */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero-headline {
+        font-size: 2.2rem;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .quote-box {
+        border-left: none;
+        border-top: 3px solid var(--wood-primary);
+        border-radius: var(--radius-md);
+      }
+
+      .skills-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-visual-side, .project-detail-side {
+        padding: 32px 24px;
+      }
+
+      .about-grid, .interests-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--wood-cream);
+        padding: 20px;
+        border-bottom: 1px solid var(--wood-border);
+        box-shadow: 0 10px 20px rgba(74, 53, 37, 0.1);
+        text-align: center;
+        gap: 16px;
+      }
+
+      .hero-headline {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .contact-card {
+        padding: 30px 20px;
+      }
+
+      .chord-buttons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== 導覽列 ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand">
+        <span class="hanko-seal">林</span>
+        <span>林岑瑾</span>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="切換選單">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">關於慢熱</a></li>
+        <li><a href="#interests" class="nav-link">日常生活</a></li>
+        <li><a href="#skills" class="nav-link">吉他練習</a></li>
+        <li><a href="#projects" class="nav-link">競賽經歷</a></li>
+        <li><a href="#contact" class="nav-link">與我交流</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO 區塊 ==================== -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- 左側：日系質感個人卡片 -->
+          <div class="hero-visual reveal">
+            <div class="hero-card">
+              <div class="avatar-wrapper">
+                <!-- 溫潤原木色系頭像向量插畫 -->
+                <svg class="avatar-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- 背景光暈 -->
+                  <circle cx="80" cy="80" r="70" fill="#FAF7F2" />
+                  <!-- 身體衣著 -->
+                  <path d="M30 150C30 115 52 105 80 105C108 105 130 115 130 150" fill="#8C6239" />
+                  <!-- 領口裝飾 -->
+                  <path d="M70 105L80 120L90 105" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <!-- 脖子 -->
+                  <rect x="73" y="88" width="14" height="20" rx="4" fill="#F4DCC7" />
+                  <!-- 臉龐 -->
+                  <ellipse cx="80" cy="74" rx="26" ry="28" fill="#FCE9DA" />
+                  <!-- 溫暖日系短髮造型 -->
+                  <path d="M52 74C52 50 63 42 80 42C97 42 108 50 108 74C108 80 106 88 104 90C98 84 96 74 96 74C96 74 88 78 80 72C72 78 64 74 64 74C64 74 62 84 56 90C54 88 52 80 52 74Z" fill="#4A3525" />
+                  <!-- 眉眼：安靜溫和的微彎神情 -->
+                  <path d="M68 70C70 69 74 69 76 70" stroke="#4A3525" stroke-width="2" stroke-linecap="round" />
+                  <path d="M84 70C86 69 90 69 92 70" stroke="#4A3525" stroke-width="2" stroke-linecap="round" />
+                  <!-- 微笑 -->
+                  <path d="M76 84C78 86 82 86 84 84" stroke="#8C6239" stroke-width="2" stroke-linecap="round" />
+                  <!-- 柔和腮紅 -->
+                  <circle cx="67" cy="78" r="4" fill="#E8B4A2" opacity="0.6" />
+                  <circle cx="93" cy="78" r="4" fill="#E8B4A2" opacity="0.6" />
+                </svg>
+              </div>
+
+              <div class="hero-card-status">
+                <span class="status-dot"></span>
+                <span>保持好奇・沉靜生活</span>
+              </div>
+
+              <h2 class="hero-card-name">林岑瑾</h2>
+              <p class="hero-card-roman">Lin Cen-Jin</p>
+
+              <div class="hero-tags">
+                <span class="tag-pill">🥋 跆拳道</span>
+                <span class="tag-pill">🎹 彈鋼琴</span>
+                <span class="tag-pill">🎬 看電影</span>
+                <span class="tag-pill">🎸 彈吉他</span>
+                <span class="tag-pill">💡 醫療科技</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右側：自我介紹主標與慢熱宣言 -->
+          <div class="hero-content reveal delay-1">
+            <span class="hero-vertical-tag">Personal Portfolio・日々の記録</span>
+            
+            <h1 class="hero-headline">
+              初次見面，我是<span class="highlight-word">林岑瑾</span>。<br>
+              一個擁抱「慢熱」的人。
+            </h1>
+
+            <!-- 慢熱核心引言 -->
+            <div class="quote-box">
+              <p>「慢熱不是疏離，而是像年輪一樣，習慣用時間去釀造真摯與專注。」</p>
+              <div class="quote-author">—— 傾聽深處的聲音，走穩每一步節奏</div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 28px; line-height: 1.85;">
+              在快節奏的世界裡，我偏好細細品味生活。動時在跆拳道道館全力以赴，靜時在鋼琴黑白鍵或電影光影間沉澱自省；近期正專注於木吉他的指尖觸弦，並曾投入醫療科技創意競賽，探尋科技與人性關懷的交匯點。
+            </p>
+
+            <div class="hero-actions">
+              <a href="#about" class="btn-wood-primary">
+                <span>認識我的步調</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#projects" class="btn-wood-outline">競賽作品</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 關於我：慢熱特質 ==================== -->
+    <section class="section-wrap" id="about">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-en-title">About My Tempo</span>
+          <h2 class="section-title">關於「慢熱」的三個面向</h2>
+          <p class="section-desc">慢熱是我的保護色，也是我對待人事物最誠懇的方式。</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- 特質 1 -->
+          <div class="trait-card reveal delay-1">
+            <span class="trait-num">01</span>
+            <h3 class="trait-title">靜謐的傾聽者</h3>
+            <p class="trait-text">
+              初次見面時，我習慣多聽少說，細心捕捉環境與對話裡的細節。不急著表現自己，而是給予身邊的人最安定、舒適的相處空間。
+            </p>
+          </div>
+
+          <!-- 特質 2 -->
+          <div class="trait-card reveal delay-2">
+            <span class="trait-num">02</span>
+            <h3 class="trait-title">持之以恆的厚度</h3>
+            <p class="trait-text">
+              慢熱的人往往耐得住寂寞與漫長的積累。如同練習鋼琴與跆拳道，一旦投入就會全心以赴，把熱情化為長久深沉的堅持。
+            </p>
+          </div>
+
+          <!-- 特質 3 -->
+          <div class="trait-card reveal delay-3">
+            <span class="trait-num">03</span>
+            <h3 class="trait-title">深刻溫暖的連結</h3>
+            <p class="trait-text">
+              破冰之後，你會發現我內心豐富而真誠的一面。我珍惜每段深度的思想交流，就像曬過陽光的原木，散發持久且安穩的溫度。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 興趣愛好 (3個) ==================== -->
+    <section class="section-wrap" id="interests" style="background: rgba(239, 232, 221, 0.35);">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-en-title">Passions & Life</span>
+          <h2 class="section-title">日常與愛好的三種節奏</h2>
+          <p class="section-desc">在動靜之間切換，尋找心靈平衡與生活能量的來源。</p>
+        </div>
+
+        <div class="interests-grid">
+          
+          <!-- 興趣 1：跆拳道 -->
+          <div class="interest-card reveal delay-1">
+            <div class="interest-card-top">
+              <div class="interest-icon-box">
+                <!-- 力量與身心專注圖標 -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>
+              </div>
+              <span class="interest-label">動態淬鍊</span>
+            </div>
+            <div class="interest-body">
+              <h3 class="interest-title">跆拳道</h3>
+              <div class="interest-quote">「踢腿間的專注，鍛鍊出沉穩堅毅的魄力。」</div>
+              <p class="interest-desc">
+                在道館的每一次出拳與旋踢，都需要高度的爆發力與自律。跆拳道教會我面對壓力時不退縮、在逆境中穩住重心的修養。
+              </p>
+              <div class="interest-tags">
+                <span class="interest-tag">#專注力</span>
+                <span class="interest-tag">#身心平衡</span>
+                <span class="interest-tag">#堅定信念</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 興趣 2：彈鋼琴 -->
+          <div class="interest-card reveal delay-2">
+            <div class="interest-card-top">
+              <div class="interest-icon-box">
+                <!-- 鋼琴與音符圖標 -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+              </div>
+              <span class="interest-label">靜心撫慰</span>
+            </div>
+            <div class="interest-body">
+              <h3 class="interest-title">彈鋼琴</h3>
+              <div class="interest-quote">「黑白鍵上的呼吸，是喧囂世界裡的避風港。」</div>
+              <p class="interest-desc">
+                指尖輕觸琴鍵時流淌的旋律，總能撫平日常裡的浮躁。透過音符的強弱與節奏，表達那些言語難以道盡的情感與細膩思緒。
+              </p>
+              <div class="interest-tags">
+                <span class="interest-tag">#古典與現代</span>
+                <span class="interest-tag">#情感抒發</span>
+                <span class="interest-tag">#節奏感</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 興趣 3：看電影 -->
+          <div class="interest-card reveal delay-3">
+            <div class="interest-card-top">
+              <div class="interest-icon-box">
+                <!-- 電影膠捲圖標 -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                  <line x1="7" y1="2" x2="7" y2="22"></line>
+                  <line x1="17" y1="2" x2="17" y2="22"></line>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <line x1="2" y1="7" x2="7" y2="7"></line>
+                  <line x1="2" y1="17" x2="7" y2="17"></line>
+                  <line x1="17" y1="17" x2="22" y2="17"></line>
+                  <line x1="17" y1="7" x2="22" y2="7"></line>
+                </svg>
+              </div>
+              <span class="interest-label">光影世界</span>
+            </div>
+            <div class="interest-body">
+              <h3 class="interest-title">看電影</h3>
+              <div class="interest-quote">「走進別人的兩小時，拓寬理解世界的維度。」</div>
+              <p class="interest-desc">
+                熱愛沉浸在電影院的暗室光影中，特別喜愛日系生活美學、細膩劇情片與探討人性的作品，從鏡頭語言中汲取美感與生命共鳴。
+              </p>
+              <div class="interest-tags">
+                <span class="interest-tag">#光影美學</span>
+                <span class="interest-tag">#同理心</span>
+                <span class="interest-tag">#故事靈感</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 擅長/想學的技能：彈吉他 (含互動和弦音效) ==================== -->
+    <section class="section-wrap" id="skills">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-en-title">Skill & Exploration</span>
+          <h2 class="section-title">技能探索：溫暖木吉他</h2>
+          <p class="section-desc">從鍵盤走向指板，用指尖摩擦琴弦，摸索另一種質樸的音色。</p>
+        </div>
+
+        <div class="skills-box reveal">
+          
+          <!-- 左側文字解說 -->
+          <div class="skill-info">
+            <span class="skill-status-tag">🎸 目前正在深度投入的技能</span>
+            <h3>彈吉他 (Acoustic Guitar)</h3>
+            <p>
+              有了鋼琴的樂理基礎，我被木吉他隨性、溫暖且貼近生活的特質吸引。儘管剛開始按弦指尖會痛、封閉和弦轉換需要反覆練習，但正是這種真實的物理回饋，讓我感受到學習的踏實。
+            </p>
+
+            <ul class="skill-routine-list">
+              <li class="skill-routine-item">
+                <span class="routine-icon">✓</span>
+                <span>爬格子 (Spider Exercise) 與手指獨立性訓練</span>
+              </li>
+              <li class="skill-routine-item">
+                <span class="routine-icon">✓</span>
+                <span>開放和弦 (C - G - Am - F) 轉換流暢度進階</span>
+              </li>
+              <li class="skill-routine-item">
+                <span class="routine-icon">✓</span>
+                <span>指彈 (Fingerstyle) 抒情曲目節奏掌握</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 右側：木質互動和弦模擬器 (純原生 Web Audio API，無需外連音檔) -->
+          <div class="guitar-interactive-board">
+            <div class="board-header">
+              <div class="board-title">
+                <span>木質和弦互動體驗</span>
+              </div>
+              <span class="board-hint">點擊按鈕試聽木質琴聲</span>
+            </div>
+
+            <!-- 和弦按鈕 -->
+            <div class="chord-buttons-grid">
+              <button class="chord-btn" onclick="playGuitarChord('C')">
+                C
+                <span class="chord-subtext">清澈明朗</span>
+              </button>
+              <button class="chord-btn" onclick="playGuitarChord('G')">
+                G
+                <span class="chord-subtext">開闊溫暖</span>
+              </button>
+              <button class="chord-btn" onclick="playGuitarChord('Am')">
+                Am
+                <span class="chord-subtext">內斂慢熱</span>
+              </button>
+              <button class="chord-btn" onclick="playGuitarChord('F')">
+                F
+                <span class="chord-subtext">溫柔深邃</span>
+              </button>
+            </div>
+
+            <!-- 琴弦視覺動畫 -->
+            <div class="guitar-strings" id="guitarStrings">
+              <div class="string-line"></div>
+              <div class="string-line"></div>
+              <div class="string-line"></div>
+              <div class="string-line"></div>
+              <div class="string-line"></div>
+              <div class="string-line"></div>
+            </div>
+
+            <div class="audio-notice">
+              ♫ 原生 Web Audio 振盪器即時合成木吉他泛音
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 作品/活動：醫療科技創意競賽 ==================== -->
+    <section class="section-wrap" id="projects" style="background: rgba(239, 232, 221, 0.35);">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-en-title">Experience & Innovation</span>
+          <h2 class="section-title">競賽歷程與作品專案</h2>
+          <p class="section-desc">結合同理心與科技思維，將日常觀察轉化為具有溫度的解決方案。</p>
+        </div>
+
+        <div class="project-card reveal">
+          
+          <!-- 左側深木色形象區 -->
+          <div class="project-visual-side">
+            <div>
+              <span class="project-badge-top">✦ 核心歷練</span>
+              <h3 class="project-visual-title">醫療科技<br>創意競賽</h3>
+              <p class="project-visual-sub">
+                以「人本關懷」為核心出發點，運用跨領域思維探討智慧科技如何優化現代醫療與病患照護體驗。
+              </p>
+            </div>
+
+            <div class="project-meta-pills">
+              <span class="meta-pill">跨領域整合</span>
+              <span class="meta-pill">需求洞察</span>
+              <span class="meta-pill">創新概念提案</span>
+              <span class="meta-pill">團隊協同作戰</span>
+            </div>
+          </div>
+
+          <!-- 右側歷程細節區 -->
+          <div class="project-detail-side">
+            
+            <div class="detail-step">
+              <span class="step-marker"></span>
+              <h4 class="step-title">痛點挖掘：看見被忽略的微小需求</h4>
+              <p class="step-desc">
+                透過慢熱觀察者的視角，深入同理就醫者面對冷冰冰醫療儀器時的不安與焦慮，尋找能給予心理撫慰的介面切入點。
+              </p>
+            </div>
+
+            <div class="detail-step">
+              <span class="step-marker"></span>
+              <h4 class="step-title">跨領域共創：科技與溫度的平衡</h4>
+              <p class="step-desc">
+                與不同專長的夥伴緊密協同，在繁複的醫療法規、技術可行性與使用者體驗之間反覆討論，提出具備落地潛力的創新雛形。
+              </p>
+            </div>
+
+            <div class="detail-step">
+              <span class="step-marker"></span>
+              <h4 class="step-title">淬鍊收穫：思維升級與實踐勇氣</h4>
+              <p class="step-desc">
+                競賽讓我體會到：真正的科技創新不在於炫目的技術堆疊，而在於能否為使用者帶來切實的安心感與便利性。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 慢熱小籤詩互動小彩蛋 (日系和紙籤條) -->
+        <div class="fortune-box reveal delay-1">
+          <h3 class="fortune-title">今日慢熱小語・心靈籤詩</h3>
+          <p class="fortune-desc">點擊下方按鈕，抽取一句給生活帶來安定感的木質小語：</p>
+          
+          <div class="fortune-display" id="fortuneDisplay">
+            「慢熱不是遲鈍，而是用最踏實的步伐，走進真正重要的事物裡。」
+          </div>
+
+          <button class="btn-fortune" onclick="drawFortune()">抽一張生活籤 🎋</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 聯絡與結尾 ==================== -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="hanko-seal" style="width: 42px; height: 42px; font-size: 1.2rem; margin-bottom: 16px;">林</span>
+          <h3>期待與你的每一次真誠交流</h3>
+          <p>
+            慢熱的人，往往也最珍惜深度的對話。<br>
+            無論你想聊聊跆拳道的自律、鋼琴吉他的和弦美學、電影觀後感，或是探討醫療科技的無限可能，都歡迎與我聯繫！
+          </p>
+
+          <div class="contact-actions">
+            <button class="btn-wood-primary" onclick="copyContactEmail('cenjin.lin@example.com')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>複製 Email 信箱</span>
+            </button>
+            <a href="#home" class="btn-wood-outline">回到頂端 ↑</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 頁尾 ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-seal">
+        <span class="hanko-seal">瑾</span>
+      </div>
+      <p class="footer-text">
+        © 2026 林岑瑾 Lin Cen-Jin. All Rights Reserved.<br>
+        日系簡約・自然木質調設計 | 純手工 Vanilla HTML & CSS
+      </p>
+    </div>
+  </footer>
+
+  <!-- 提示浮動 Toast -->
+  <div class="toast-notice" id="toastNotice">
+    <span>✓ 已複製 Email 到剪貼簿！期待您的來信。</span>
+  </div>
+
+  <!-- ===================================================
+       JavaScript: 捲動淡入、吉他和弦音效、選單與抽籤
+       =================================================== -->
+  <script>
+    /* -------------------------------------------------
+       1. 捲動淡入動畫 (Intersection Observer)
+       ------------------------------------------------- */
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // 一旦觸發淡入後就解除監聽，提升性能
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(el => revealObserver.observe(el));
+    });
+
+    /* -------------------------------------------------
+       2. 手機版選單切換
+       ------------------------------------------------- */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+
+      // 點擊任何導航連結後自動關閉選單
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
+      });
+    }
+
+    /* -------------------------------------------------
+       3. 原生 Web Audio API 吉他撥弦擬真合成器
+       ------------------------------------------------- */
+    let audioCtx = null;
+
+    // 定義四大和弦的代表頻率 (Hz)
+    const chordFrequencies = {
+      'C': [130.81, 164.81, 196.00, 261.63, 329.63], // C3, E3, G3, C4, E4
+      'G': [98.00, 123.47, 146.83, 196.00, 246.94, 392.00], // G2, B2, D3, G3, B3, G4
+      'Am': [110.00, 164.81, 220.00, 261.63, 329.63], // A2, E3, A3, C4, E4
+      'F': [87.31, 130.81, 174.61, 220.00, 261.63, 349.23]  // F2, C3, F3, A3, C4, F4
+    };
+
+    function playGuitarChord(chordName) {
+      // 確保使用者交互時初始化 AudioContext
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      
+      if (!audioCtx) return;
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      const freqs = chordFrequencies[chordName] || chordFrequencies['C'];
+      const now = audioCtx.currentTime;
+
+      // 觸發琴弦微震動動畫
+      const strings = document.querySelectorAll('.string-line');
+      strings.forEach((str, i) => {
+        setTimeout(() => {
+          str.classList.add('vibrate');
+          setTimeout(() => str.classList.remove('vibrate'), 400);
+        }, i * 35);
+      });
+
+      // 模擬民謠吉他掃弦：由低音弦到高音弦依序撥響 (Arpeggio effect)
+      freqs.forEach((freq, index) => {
+        const stringDelay = index * 0.038; // 38ms 掃弦間隔
+        const noteTime = now + stringDelay;
+
+        // 主振盪器 (三角波，呈現溫潤的木質彈撥感)
+        const osc = audioCtx.createOscillator();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, noteTime);
+
+        // 次振盪器 (正弦波，補充低頻共鳴)
+        const subOsc = audioCtx.createOscillator();
+        subOsc.type = 'sine';
+        subOsc.frequency.setValueAtTime(freq * 0.5, noteTime);
+
+        // 增益節點 (弦樂器撥奏 ADSR 包絡)
+        const gainNode = audioCtx.createGain();
+        gainNode.gain.setValueAtTime(0, noteTime);
+        gainNode.gain.linearRampToValueAtTime(0.22, noteTime + 0.008); // 快速起音
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, noteTime + 1.6); // 長餘音衰減
+
+        // 柔和低通濾波器模擬木吉他共鳴箱
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(2200, noteTime);
+        filter.frequency.exponentialRampToValueAtTime(600, noteTime + 1.2);
+
+        // 連接音訊鏈路
+        osc.connect(filter);
+        subOsc.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        osc.start(noteTime);
+        subOsc.start(noteTime);
+        osc.stop(noteTime + 1.6);
+        subOsc.stop(noteTime + 1.6);
+      });
+    }
+
+    /* -------------------------------------------------
+       4. 今日慢熱心靈籤詩
+       ------------------------------------------------- */
+    const fortunes = [
+      "「慢熱不是遲鈍，而是用最踏實的步伐，走進真正重要的事物裡。」",
+      "「木頭的年輪需要四季雕琢，你的沉潛也正在積聚光芒。」",
+      "「像鋼琴的休止符一樣，暫停不是結束，而是下一段動人旋律的伏筆。」",
+      "「跆拳道的剛，與慢熱的柔，在你身上形成了最美麗的平衡。」",
+      "「琴弦按緊會有些刺痛，但彈出的每一聲都是成長的共鳴。」",
+      "「不喧鬧的真誠，終會遇見懂得欣賞靜默與細節的人。」"
+    ];
+
+    let lastIndex = -1;
+    function drawFortune() {
+      const display = document.getElementById('fortuneDisplay');
+      if (!display) return;
+
+      display.style.opacity = '0';
+      display.style.transform = 'translateY(10px)';
+
+      setTimeout(() => {
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * fortunes.length);
+        } while (newIndex === lastIndex && fortunes.length > 1);
+
+        lastIndex = newIndex;
+        display.innerText = fortunes[newIndex];
+        display.style.opacity = '1';
+        display.style.transform = 'translateY(0)';
+      }, 250);
+    }
+
+    /* -------------------------------------------------
+       5. 複製信箱與 Toast 提示
+       ------------------------------------------------- */
+    function copyContactEmail(email) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast();
+        }).catch(() => {
+          fallbackCopy(email);
+        });
+      } else {
+        fallbackCopy(email);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast();
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toastNotice');
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
